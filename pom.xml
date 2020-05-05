@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.6.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>kr.inhatc.spring</groupId>
 	<artifactId>MyProject</artifactId>
@@ -15,8 +16,8 @@
 	<description>Basic Project for Spring Boot</description>
 
 	<properties>
-		<java.version>11</java.version>	
-		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>	
+		<java.version>11</java.version>
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -46,7 +47,7 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId> 
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
 
@@ -56,8 +57,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
-			<artifactId>mybatis-spring-boot-starter</artifactId>	
-			<version>2.1.2</version>		
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.oracle.ojdbc</groupId>
@@ -74,7 +75,15 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-	</dependencies> 
+
+		<!-- log4jdbc -->
+		<dependency>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+			<version>1.16</version>
+		</dependency>
+
+	</dependencies>
 
 	<build>
 		<plugins>

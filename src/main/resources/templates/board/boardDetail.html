@@ -7,8 +7,7 @@
 </head>
 <body>
 	<div class="container">
-		<h2>게시판 상세</h2>
-		
+		<h2>게시판 상세 화면</h2>
 		<form id="frm" name="frm" method="POST">
 			<table class="board_detail">
 				<colgroup>
@@ -32,22 +31,54 @@
 						<td th:text="${board.createDatetime}"></td>
 					</tr>
 					<tr>
-						<th scope="row">제목</th>							
-						<td colspan="3">
-							<input type="text" id="title" name="title" th:value="${board.title}">
-						</td>						
+						<th scope="row">제목</th>
+						<td colspan="3"><input type="text" id="title" name="title" th:value="${board.title}" /></td>
 					</tr>
 					<tr>
 						<td colspan="4" class="view_text">
-							<textarea title="내용" id="contents", name="contents" th:text="${board.contents}"></textarea>
+							<textarea title="내용" id="contents" name="contents" th:text="${board.contents}"></textarea>
 						</td>
 					</tr>
 				</tbody>
-			</table>
-			<input type="button" id="list" value="목록으로" class="btn">
-			<input type="button" id="edit" value="수정하기" class="btn">
-			<input type="button" id="delete" value="삭제하기" class="btn">
+			</table>	
+			<input type="hidden" name="boardIdx" th:value="${board.boardIdx}">	  
 		</form>
+		
+		<input type="button" id="list" value="목록으로" class="btn">
+		<input type="button" id="edit" value="수정하기" class="btn">
+		<input type="button" id="delete" value="삭제하기" class="btn">
 	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous">
+	</script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#list").on("click", function(){
+				location.href = "/board/boardList"
+			});
+			
+			$("#edit").on("click", function(){				
+				var frm = $("#frm")[0];				
+				frm.action = "/board/boardUpdate";
+				frm.submit()
+			});
+			
+			$("#delete").on("click", function(){				
+				var frm = $("#frm")[0];				
+				frm.action = "/board/boardDelete";
+				frm.submit()
+			});
+		});
+	</script>
 </body>
 </html>
+
+
+
+
+
+
+

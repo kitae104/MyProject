@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import kr.inhatc.spring.board.dto.BoardDto;
+import kr.inhatc.spring.board.dto.FileDto;
 
 @Mapper
 public interface BoardMapper {
@@ -22,6 +23,6 @@ public interface BoardMapper {
 
 	void boardDelete(int boardIdx);
 
-	
+	void boardFileInsert(List<FileDto> list);	
 
 }

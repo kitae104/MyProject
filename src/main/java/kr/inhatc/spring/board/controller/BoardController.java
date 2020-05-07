@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.inhatc.spring.board.dto.BoardDto;
@@ -47,8 +48,8 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/board/boardInsert")
-	public String boardInsert(BoardDto board) {		
-		boardService.boardInsert(board);
+	public String boardInsert(BoardDto board, MultipartHttpServletRequest multipartHttpServletRequest) {		
+		boardService.boardInsert(board, multipartHttpServletRequest);
 		return "redirect:/board/boardList";
 	}
 	

@@ -37,10 +37,10 @@ public class BoardController {
 	private BoardService boardService;
 	
 	
-	@RequestMapping("/")
-	public String hello() {
-		return "index"; 
-	}
+//	@RequestMapping("/")
+//	public String hello() {
+//		return "index"; 
+//	}
 	
 	@RequestMapping("/board/boardList")
 	public String boardList(Model model) {		

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,5 +38,42 @@ public class UserController {
 		List<Users> list = userService.userList();
 		model.addAttribute("list", list);
 		return "user/userList";   
+	}
+	
+	@RequestMapping(value = "/user/userInsert", method=RequestMethod.GET)
+	public String userWrite() {		
+		return "user/userWrite";   
+	}
+	
+	@RequestMapping(value = "/user/userInsert", method=RequestMethod.POST)
+	public String userInsert(Users user) {
+		userService.saveUsers(user);
+		return "redirect:/user/userList"; 
+	}
+	
+	@RequestMapping(value = "/user/userDetail/{id}", method=RequestMethod.GET)
+	public String userDetail(@PathVariable("id") String id, Model model) {
+		Users user = userService.userDtail(id);
+		model.addAttribute("user", user);
+		System.out.println("=================> " + user);
+		return "user/userDetail";     
+	}
+	
+	@RequestMapping(value = "/user/userUpdate/{id}", method=RequestMethod.POST)
+	public String userUpdate(@PathVariable("id") String id, Users user) {	
+		System.out.println("==================>" + user);
+		
+		// 아이디 설정 
+		user.setId(id);
+		System.out.println("==================>" + user);
+		userService.saveUsers(user);
+		return "redirect:/user/userList"; 
+	}
+	
+	@RequestMapping(value = "/user/userDelete/{id}", method=RequestMethod.GET)
+	public String userDelete(@PathVariable("id") String id) {	
+		
+		userService.userDelete(id);
+		return "redirect:/user/userList"; 
 	}
 }

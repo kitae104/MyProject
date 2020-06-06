@@ -41,6 +41,11 @@ public class BoardController {
 //	public String hello() {
 //		return "index"; 
 //	}
+	@RequestMapping("/test/testPage")
+	public String testPage() {		
+		return "test/testPage";
+	}
+	
 	
 	@RequestMapping("/board/boardList")
 	public String boardList(Model model) {		
